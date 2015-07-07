@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=@libdir@
+dir=@libdir@/apertium/apertium-alt
+srcdir=@datarootdir@/apertium/apertium-alt
+
+Name: apertium-alt
+Description: Finite-state morphological transducer and constraint grammar for Southern Altai 
+Version: @VERSION@
+
