@@ -1,0 +1,96 @@
+! Morphological Transducer for Southern Altai
+
+Multichar_Symbols
+
+! Part of speech categories
+%<n%>   ! Noun
+%<v%>   ! Verb
+
+! Number morphology
+%<pl%>  ! Plural
+
+! Subcategories
+%<iv%>  ! Intransitive
+
+! Tenses
+%<imp%>
+
+! Possessive
+%<px1sg%>
+
+! Case
+%<nom%>
+%<acc%>
+%<gen%>
+%<loc%>
+
+! Other symbols
+%>      ! Morpheme boundary
+%{N%}
+%{I%}
+%{D%}
+%{A%}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!                       M O R P H O T A C T I C S                         !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+LEXICON Root
+
+NounRoot ;
+VerbRoot ;
+
+
+LEXICON N-Px
+%<px1sg%>:%>%{I%}м N-Case ;
+
+N-Case ;
+
+LEXICON N-Case
+
+%<nom%>: # ;
+%<acc%>:%>%{N%}%{I%} # ;
+%<gen%>:%>%{N%}%{I%}ҥ # ;
+%<loc%>:%>%{D%}%{A%} # ;
+
+LEXICON N-INFL
+
+%<n%>: N-Px ;
+
+
+LEXICON V-Tense
+
+%<imp%>: # ;
+
+LEXICON V-IV
+
+%<v%>%<iv%>: V-Tense ;
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!                          L E X I C O N                                  !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+LEXICON NounRoot
+
+!house:house RegNounInfl ; ! A noun
+бӧрӱ:бӧрӱ N-INFL ; ! "wolf"
+болчок:болчок N-INFL ; ! "lump"
+кӧл:кӧл N-INFL ; ! "lake"
+ай:ай N-INFL ; ! "moon"
+аймак:аймак N-INFL ; ! "region"
+
+LEXICON VerbRoot
+
+аймакта:аймакта V-IV ; ! "go visiting"
+
+
+! Resources:
+! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+! http://hfst.sourceforge.net/
+! http://www.cis.upenn.edu/~cis639/docs/lexc.html
+! http://wiki.apertium.org/wiki/Hfst
+

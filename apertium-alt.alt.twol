@@ -1,0 +1,48 @@
+Alphabet
+ А Б В Г Д Е Ё Ж З И И Ј К Л М Н Ҥ О Ӧ П Р С Т У Ӱ Ф Х Ц Ч Ш Щ Ь Ы Ъ Э Ю Я
+ а б в г д е ё ж з и й ј к л м н ҥ о ӧ п р с т у ӱ ф х ц ч ш щ ь ы ъ э ю я
+ %0 1 2 3 4 5 6 7 8 9
+
+ %{I%}:ы %{N%}:н %{D%}:д %{A%}:а %>:0  ;
+
+Sets
+
+Vow = А Е Э И Ы О У Ӧ Ӱ
+      а е э и ы о у ӧ ӱ ;
+
+Cns =  Б В Г Д Ж З Й Ј К Л М Н Ҥ П Р С Т Ф Х Ц Ч Ш Щ Ь Ъ
+       б в г д ж з й ј к л м н ҥ п р с т ф х ц ч ш щ ь ъ ;
+
+
+VclsCns = П Т К Х С Ш Щ Ф
+          п т к х с ш щ ф ;
+
+Sonorant =  й Л М Н Ҥ Р
+            й л м н ҥ р ;
+
+Rules 
+
+"{N} is realised as т after voiceless consonants"
+%{N%}:т <=> :VclsCns/[ :0 ]* _ ;
+
+"{N} is realised as д after sonorants"
+%{N%}:д <=> :Sonorant/[ :0 ]* _ ;
+
+"{I} deletes after another vowel"
+%{I%}:0 <=> :Vow/[ :0 ]* _ ;
+
+"{I} rounding harmony"
+%{I%}:ӱ <=> [ [ ӧ | ӱ ] :Cns+ ]/[ :0 ]* _ ;
+
+"{D} is realised as т after voiceless consonants"
+%{D%}:т <=> :VclsCns/[ :0 ]* _ ;
+
+
+
+! Resources:
+! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
+! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+! http://hfst.sourceforge.net/
+! http://wiki.apertium.org/wiki/Twol
+! http://wiki.apertium.org/wiki/Hfst
+
