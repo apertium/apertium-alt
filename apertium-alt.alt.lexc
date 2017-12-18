@@ -10,6 +10,7 @@ Multichar_Symbols
 %<det%>     ! Determiner
 %<cnjcoo%>  ! Coordinating conjunction
 %<post%>    ! Postpositions
+%<prn%>     ! Pronoun
 
 ! Number morphology
 %<pl%>  ! Plural
@@ -28,6 +29,8 @@ Multichar_Symbols
 %<org%> ! Organisation
 !! <det> subcategories
 %<dem%> ! Demonstrative
+!! <prn> subcategories
+%<prs%> ! Personal
 
 ! Misc verb stuff
 %<neg%>
@@ -87,6 +90,7 @@ ProperNounRoot ;
 Determiners ;
 Numerals ;
 Postpositions ;
+Pronouns ;
 
 
 LEXICON POST
@@ -236,7 +240,21 @@ LEXICON NUM
 
 NUM-COMMON ;
 
+LEXICON PRON-P3SG-CASES
 
+%<nom%>:л CLITICS ;
+%<acc%>:%>%{N%}%{I%} NOM-CLITICS ;
+%<gen%>:%>%{N%}%{I%}ҥ NOM-CLITICS ;
+%<loc%>:%>н%{D%}%{A%} NOM-CLITICS ;
+%<abl%>:%>н%{A%}ҥ NOM-CLITICS ;
+%<dat%>:%>%{G%}%{A%} NOM-CLITICS ;
+
+
+
+LEXICON PersonalPronouns
+
+ол%<prn%>%<pers%>%<p3%>%<sg%>:о PRON-P3SG-CASES ;
+олор%<prn%>%<pers%>%<p3%>%<pl%>:олор N-Case ;
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -251,6 +269,11 @@ LEXICON Postpositions
 
 учун:учун POST ; ! "for, because of"
 узеери:узеери POST ; ! ""
+
+LEXICON Pronouns
+
+!DemonstrativePronouns
+PersonalPronouns ;
 
 LEXICON NounRoot
 
