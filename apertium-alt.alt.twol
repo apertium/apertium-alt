@@ -14,6 +14,7 @@ Alphabet
  %{n%}:0
  %{G%}:г
  %{l%}:л
+ %{Z%}:з
  
  %-
  %+
@@ -85,7 +86,10 @@ Rules
 "{N} is realised as д after sonorants"
 %{N%}:д <=> :Sonorant/[ :0 ]* _ ;
         except
-            :Nasal %>: _ [ :Vow :Nasal ]/[ :0 ]* ;
+            :Nasal %>: _ [ :Vow :Nasal ]/[ :0 ]* ;  ! nasal harmony
+
+"{D} nasal harmony"
+%{D%}:н <=> :Nasal %>: _ [ :Vow :Nasal ]/[ :0 ]* ;
 
 "{D} is realised as т after voiceless consonants"
 %{D%}:т <=> :VclsCns/[ :0 - %{n%}: ]* _ ;
@@ -105,6 +109,11 @@ VclsCoronal:VcdCoronal <=> :Vow _ [ %>: :Vow ]/[ :0 - %>: ]* ;
                        where VclsCoronal in ( с т ш п к )
                               VcdCoronal in ( з д ж б г )
                        matched ;
+
+"{Z} is realised as с after voiceless consonants"
+%{Z%}:с <=> :VclsCns/[ :0 ]* _ ;
+
+
 
 !!! Case + possessive stuff !!!
 

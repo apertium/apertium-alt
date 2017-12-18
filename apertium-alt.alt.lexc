@@ -50,6 +50,7 @@ Multichar_Symbols
 %<prc_perf%>
 %<gpr_past%>
 %<gpr_impf%>
+%<gna_cond%>
 
 ! Possessive
 %<px1sg%>
@@ -78,6 +79,7 @@ Multichar_Symbols
 %{n%}
 %{G%}
 %{l%}
+%{Z%}
 %+
 %-
 % 
@@ -161,8 +163,13 @@ LEXICON V-Person-Fut
 
 LEXICON V-Person-Opt
 
-%<p3%>%<sg%>:з%{I%}н # ;
-%<p3%>%<pl%>:з%{I%}н # ;
+%<p3%>%<sg%>:%{Z%}%{I%}н # ;
+%<p3%>%<pl%>:%{Z%}%{I%}н # ;
+
+LEXICON V-Person-Cond
+
+%<p3%>%<sg%>: # ;
+%<p3%>%<pl%>: # ;
 
 LEXICON V-Tense-Irreg
 
@@ -183,6 +190,8 @@ LEXICON V-NonFinite
 
 %<gpr_past%>:%>%{G%}%{A%}н V-Gpr ;
 %<gpr_impf%>:%>%{E%}т%{A%}н V-Gpr ;
+
+%<gna_cond%>:%>%{Z%}%{A%} V-Person-Cond ;
 
 
 LEXICON V-NonFinite-Irreg
@@ -329,6 +338,8 @@ LEXICON NounRoot
 ӱредӱчи:ӱредӱчи N-INFL ; ! "teacher"
 кӱч:кӱч N-INFL ; ! "strength"
 станция:станция N-INFL-RUS ; ! "station"
+участок:участок N-INFL-RUS ; ! ""
+ич:ич N-INFL ; ! "inside"
 
 
 LEXICON VerbRoot
@@ -355,6 +366,7 @@ LEXICON VerbRoot
 кир:кир V-IV ; ! "enter"
 кӧр:кӧр V-TV ; ! "see"
 ӱрен:ӱрен V-TV ; ! "learn"
+эт:эт V-TV ; ! "make"
 
 
 LEXICON AdjectiveRoot
@@ -378,6 +390,7 @@ LEXICON ProperNounRoot
 Сибирь:Сибирь NP-TOP ;
 Новосибирск:Новосибирск NP-TOP ;
 Москва:Москва NP-TOP ;
+Майма:Майма NP-TOP ;
 
 Госавтоинспекция:Госавтоинспекция NP-ORG ;
 
