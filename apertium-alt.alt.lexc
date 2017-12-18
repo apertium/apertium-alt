@@ -39,6 +39,7 @@ Multichar_Symbols
 %<imp%>   ! imperative
 %<npst%>  ! non-past
 %<fut%>   ! future
+%<opt%>   ! optative
 
 ! Person
 %<p1%>
@@ -153,6 +154,11 @@ LEXICON V-Person-Fut
 %<p3%>%<sg%>: # ;
 %<p3%>%<pl%>: # ;
 
+LEXICON V-Person-Opt
+
+%<p3%>%<sg%>:з%{I%}н # ;
+%<p3%>%<pl%>:з%{I%}н # ;
+
 LEXICON V-Tense-Irreg
 
 %<fut%>:%>%{A%}р V-Person-Fut ;
@@ -162,6 +168,7 @@ LEXICON V-Tense
 
 %<imp%>: # ;
 %<npst%>:%>%{E%} V-Person-NPast ;
+%<opt%>: V-Person-Opt ;
 
 LEXICON V-Gpr
 
@@ -303,9 +310,18 @@ LEXICON NounRoot
 ӧй:ӧй N-INFL ; ! "house"
 керек:керек N-INFL ; ! "necessity?"
 јурт:јурт N-INFL ; ! "country?"
-производство:производство N-INFL ; ! "production"
+производство:производство N-INFL-RUS ; ! "production"
 куш:куш N-INFL ; ! "bird"
 баш:баш N-INFL ; ! "head"
+јан:јан N-INFL ; ! "next to"
+процент:процент N-INFL-RUS ; ! "percent"
+грант:грант N-INFL-RUS ; ! "grant"
+туу:туу N-INFL ; ! "mountain"
+функция:функция N-INFL-RUS ; ! "function"
+ада%-эне N-INFL ; ! "parent(s)"
+јаш:јаш N-INFL ; ! "age"
+отургыш:отургыш N-INFL ; ! "seat(?)"
+
 
 LEXICON VerbRoot
 
@@ -329,6 +345,7 @@ LEXICON VerbRoot
 јет:јет V-IV ; ! "reach"
 ал:ал V-TV ; ! "take"
 кир:кир V-IV ; ! "enter"
+кӧр:кӧр V-TV ; ! "see"
 
 
 LEXICON AdjectiveRoot
@@ -349,6 +366,9 @@ LEXICON ProperNounRoot
 Горно%-Алтайск:Горно%-Алтайск NP-TOP ;
 Иркутск:Иркутск NP-TOP ;
 Улан%-Удэ:Улан%-Удэ NP-TOP ;
+Сибирь:Сибирь NP-TOP ;
+Новосибирск:Новосибирск NP-TOP ;
+Москва:Москва NP-TOP ;
 
 Госавтоинспекция:Госавтоинспекция NP-ORG ;
 
