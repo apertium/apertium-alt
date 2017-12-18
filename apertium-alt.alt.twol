@@ -80,7 +80,7 @@ Rules
 %{N%}:д <=> :Sonorant/[ :0 ]* _ ;
 
 "{D} is realised as т after voiceless consonants"
-%{D%}:т <=> :VclsCns/[ :0 ]* _ ;
+%{D%}:т <=> :VclsCns/[ :0 - %{n%}: ]* _ ;
 
 !@ п о д ъ е з д >:0 {D}:т {I}:и ҥ
 
@@ -108,6 +108,11 @@ VclsCoronal:VcdCoronal <=> :Vow _ [ %>: :Vow ]/[ :0 - %>: ]* ;
 
 "{n} is н before locative"
 %{n%}:н <=> _ %>: %{D%}: %{A%}: .#. ;
+
+"{D} of ablative is н after px3sp"
+%{D%}:н <=> %{n%}:0 %>: _ %{A%}: :ҥ .#. ;
+
+!@ б а ш:ж >:0 {z}:0 {I}:ы {n}:0 >:0 {D}:н {A}:а ҥ	
 
 
 ! Resources:
