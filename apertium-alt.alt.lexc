@@ -235,6 +235,11 @@ LEXICON NounRoot
 ишчи:ишчи N-INFL ; ! "worker"
 акча:акча N-INFL ; ! "money"
 билим:билим N-INFL ; ! "knowledge, science"
+сайт:сайт N-INFL ; ! "site"
+ӧй:ӧй N-INFL ; ! "house"
+керек:керек N-INFL ; ! "necessity?"
+јурт:јурт N-INFL ; ! "country?"
+производство:производство ; ! "production"
 
 LEXICON VerbRoot
 
@@ -252,6 +257,11 @@ LEXICON VerbRoot
 чыгар:чыгар V-TV ; ! "extract, take out" ! Der/Caus
 кач:кач V-IV ; ! "run away"
 тӧлӧ:тӧлӧ V-TV ; ! "pay"
+арестовать% эт:арестовать% эт V-TV ; ! "arrest"
+аткар:аткар V-TV ; ! "make happen"
+тургус:тургус V-TV ; ! "stand up; establish" ! Der/Caus
+јет:јет V-IV ; ! "reach"
+
 
 LEXICON AdjectiveRoot
 
@@ -261,6 +271,7 @@ LEXICON AdjectiveRoot
 кӧп:кӧп A4 ;
 эмес:эмес A4 ;
 керек:керек A4 ;
+кичӱ:кичӱ A1 ;
 
 LEXICON ProperNounRoot
 

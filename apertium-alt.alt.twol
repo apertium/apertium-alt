@@ -92,6 +92,11 @@ Rules
 "{L} is realised as т after voiceless consonants"
 %{L%}:т <=> :VclsCns/[ :0 ]* _ ;
 
+"Voice certain stem-final coronals when intervocalic"
+VclsCoronal:VcdCoronal <=> :Vow _ %>: :Vow ;
+                       where VclsCoronal in ( с т ш )
+                              VcdCoronal in ( з д ж )
+                       matched ;
 
 !!! Case + possessive stuff !!!
 
