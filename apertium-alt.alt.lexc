@@ -5,24 +5,56 @@ Multichar_Symbols
 ! Part of speech categories
 %<n%>   ! Noun
 %<v%>   ! Verb
+%<adj%> ! Ajective
+%<np%>  ! Proper nouns
+%<det%> ! Determiner
 
 ! Number morphology
 %<pl%>  ! Plural
+%<sg%>  ! Singular
+
+! nominal type casting
+%<attr%> ! Attributive
 
 ! Subcategories
+!! <v> subcategories
 %<iv%>  ! Intransitive
+%<tv%>  ! Transitive
+!! <np> subcategories
+%<top%> ! Toponym
+%<org%> ! Organisation
+!! <det> subcategories
+%<dem%> ! Demonstrative
+
+! Misc verb stuff
+%<neg%>
 
 ! Tenses
-%<imp%>
+%<imp%>   ! imperative
+%<npst%>  ! non-past
+%<fut%>   ! future
+
+! Person
+%<p1%>
+%<p2%>
+%<p3%>
+
+! Non-finite forms
+%<prc_perf%>
+%<gpr_past%>
+%<gpr_impf%>
 
 ! Possessive
 %<px1sg%>
+%<px2sg%>
 
 ! Case
 %<nom%>
 %<acc%>
 %<gen%>
 %<loc%>
+%<ins%>
+%<abl%>
 
 ! Other symbols
 %>      ! Morpheme boundary
@@ -30,6 +62,13 @@ Multichar_Symbols
 %{I%}
 %{D%}
 %{A%}
+%{L%}
+%{B%}
+%{E%}
+%{z%}
+%{n%}
+%{G%}
+%{l%}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
@@ -39,10 +78,15 @@ LEXICON Root
 
 NounRoot ;
 VerbRoot ;
+AdjectiveRoot ;
+ProperNounRoot ;
+Determiners ;
 
 
 LEXICON N-Px
 %<px1sg%>:%>%{I%}м N-Case ;
+%<px2sg%>:%>%{I%}ҥ N-Case ;
+%<px3sp%>:%>%{z%}%{I%}%{n%} N-Case ;
 
 N-Case ;
 
@@ -52,24 +96,118 @@ LEXICON N-Case
 %<acc%>:%>%{N%}%{I%} # ;
 %<gen%>:%>%{N%}%{I%}ҥ # ;
 %<loc%>:%>%{D%}%{A%} # ;
+%<ins%>:%>%{L%}%{A%} # ;
+%<abl%>:%>%{D%}%{A%}ҥ # ;
 
 LEXICON N-INFL
 
 %<n%>: N-Px ;
+%<n%>%<pl%>:%{L%}%{A%}р N-Px ;
 
+LEXICON N-INFL-RUS
+
+N-INFL ;
+
+
+!!!! Ajective morphotactics !!!!
+
+LEXICON A1
+
+%<adj%>: # ;
+
+LEXICON A4
+
+%<adj%>: # ;
+
+
+!!!! Verb morphotactics !!!!
+
+LEXICON V-Person-NPast
+
+%<p3%>%<sg%>:%>т # ;
+%<p3%>%<pl%>:%>т # ;
+
+LEXICON V-Person-Fut
+
+%<p3%>%<sg%>: # ;
+%<p3%>%<pl%>: # ;
+
+LEXICON V-Tense-Irreg
+
+%<fut%>:%>%{A%}р V-Person-Fut ;
+%<neg%>%<fut%>:%>%{B%}%{A%}%>с V-Person-Fut ;
 
 LEXICON V-Tense
 
 %<imp%>: # ;
+%<npst%>:%>%{E%} V-Person-NPast ;
+
+LEXICON V-Gpr
+
+# ;
+
+LEXICON V-NonFinite
+
+%<gpr_past%>:%>%{G%}%{A%}н V-Gpr ;
+%<gpr_impf%>:%>%{E%}т%{A%}н V-Gpr ;
+
+
+LEXICON V-NonFinite-Irreg
+
+%<prc_perf%>:%>%{I%}п # ;
+%<neg%>%<prc_perf%>:%>%{B%}%{A%}%>%{E%} # ;
+
+LEXICON V-RegNeg
+
+V-Tense ;
+%<neg%>:%>%{B%}%{A%} V-Tense ;
+
+V-NonFinite ;
+%<neg%>:%>%{B%}%{A%} V-NonFinite ;
+
+LEXICON V-Common
+
+V-RegNeg ;
+V-Tense-Irreg ;
+V-NonFinite-Irreg ;
+
 
 LEXICON V-IV
 
-%<v%>%<iv%>: V-Tense ;
+%<v%>%<iv%>: V-Common ;
+
+LEXICON V-TV
+
+%<v%>%<tv%>: V-Common ;
+%<v%>%<tv%>%<pass%>:%>%{I%}%{l%} V-Common ;
+
+LEXICON N-INFL-COMMON
+
+N-Px ;
+
+LEXICON NP-TOP
+
+%<np%>%<top%>: N-INFL-COMMON ;
+
+LEXICON DET-DEM
+
+%<det%>%<dem%>: # ;
+
+LEXICON NP-ORG
+
+%<np%>%<org%>: N-INFL-COMMON ;
+%<np%>%<org%>%<attr%>: # ;
+
+
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+LEXICON Determiners
+
+бу:бу DET-DEM ;
 
 LEXICON NounRoot
 
@@ -77,13 +215,53 @@ LEXICON NounRoot
 бӧрӱ:бӧрӱ N-INFL ; ! "wolf"
 болчок:болчок N-INFL ; ! "lump"
 кӧл:кӧл N-INFL ; ! "lake"
-ай:ай N-INFL ; ! "moon"
+ай:ай N-INFL ; ! "moon, month"
 аймак:аймак N-INFL ; ! "region"
+модуль:модуль N-INFL ; ! "module"
+јыл:јыл N-INFL ; ! "year"
+подъезд:подъезд N-INFL-RUS ; ! "entryway"
+комплекс:комплекс N-INFL-RUS ; ! "complex"
+кижи:кижи N-INFL ; ! "person"
+јер:јер N-INFL ; ! "land"
+суу:суу N-INFL ; ! "water"
+иш:иш N-INFL ; ! "work, business"
+пресс%-служба:пресс%-служба N-INFL-RUS ; ! "press service"
+јол:јол N-INFL ; ! "road"
+министерство:министерство N-INFL-RUS ; ! "ministry"
+улус:улус N-INFL ; ! "nation" (?)
+кӱн:кӱн N-INFL ; ! "day, sun"
+ишчи:ишчи N-INFL ; ! "worker"
 
 LEXICON VerbRoot
 
 аймакта:аймакта V-IV ; ! "go visiting"
+де:де V-IV ; ! "say"
+чык:чык V-IV ; ! "leave"
+јӱр:јӱр V-IV ; ! "go"
+иште:ишет V-IV ; ! "work"
+ӧт:ӧт V-IV ; ! "pass, happen"
+бол:бол I-IV; ! "be"
+сат:сат V-TV ; ! "sell"
+бер:бер V-TV ; ! "give"
+ӧткӱр:ӧткӱр V-TV ; ! "conduct" ! Der/Caus
+тур:тур V-IV ; ! "stand"
 
+LEXICON AdjectiveRoot
+
+јаҥы:јаҥы A1 ;
+бар:бар A4 ;
+јок:јок A4 ; 
+кӧп:кӧп A4 ;
+эмес:эмес A4 ;
+керек:керек A4 ;
+
+LEXICON ProperNounRoot
+
+Алтай% Республика:Алтай% Республика NP-TOP ;
+Россия:Россия NP-TOP ;
+Горно%-Алтайск:Горно%-Алтайск NP-TOP ;
+
+Госавтоинспекция:Госавтоинспекция NP-ORG ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
