@@ -55,6 +55,7 @@ Multichar_Symbols
 %<loc%>
 %<ins%>
 %<abl%>
+%<dat%>
 
 ! Other symbols
 %>      ! Morpheme boundary
@@ -98,6 +99,7 @@ LEXICON N-Case
 %<loc%>:%>%{D%}%{A%} # ;
 %<ins%>:%>%{L%}%{A%} # ;
 %<abl%>:%>%{D%}%{A%}ҥ # ;
+%<dat%>:%>%{G%}%{A%} # ;
 
 LEXICON N-INFL
 
@@ -231,6 +233,8 @@ LEXICON NounRoot
 улус:улус N-INFL ; ! "nation" (?)
 кӱн:кӱн N-INFL ; ! "day, sun"
 ишчи:ишчи N-INFL ; ! "worker"
+акча:акча N-INFL ; ! "money"
+билим:билим N-INFL ; ! "knowledge, science"
 
 LEXICON VerbRoot
 
@@ -245,6 +249,9 @@ LEXICON VerbRoot
 бер:бер V-TV ; ! "give"
 ӧткӱр:ӧткӱр V-TV ; ! "conduct" ! Der/Caus
 тур:тур V-IV ; ! "stand"
+чыгар:чыгар V-TV ; ! "extract, take out" ! Der/Caus
+кач:кач V-IV ; ! "run away"
+тӧлӧ:тӧлӧ V-TV ; ! "pay"
 
 LEXICON AdjectiveRoot
 

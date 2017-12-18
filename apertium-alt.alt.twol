@@ -98,6 +98,9 @@ Rules
 "{z} isn't realised as z after consonants"
 %{z%}:0 <=> [ :Cns (:ь) ]/[ :0 ]* _ ;
 
+"Dative {G} deleted after px3sp"
+%{G%}:0 <=> %{n%}: %>: _ ;
+
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
