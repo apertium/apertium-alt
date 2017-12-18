@@ -3,18 +3,21 @@
 Multichar_Symbols
 
 ! Part of speech categories
-%<n%>   ! Noun
-%<v%>   ! Verb
-%<adj%> ! Ajective
-%<np%>  ! Proper nouns
-%<det%> ! Determiner
+%<n%>       ! Noun
+%<v%>       ! Verb
+%<adj%>     ! Ajective
+%<np%>      ! Proper nouns
+%<det%>     ! Determiner
+%<cnjcoo%>  ! Coordinating conjunction
+%<post%>    ! Postpositions
 
 ! Number morphology
 %<pl%>  ! Plural
 %<sg%>  ! Singular
 
 ! nominal type casting
-%<attr%> ! Attributive
+%<attr%>  ! Attributive
+%<subst%> ! Substantive
 
 ! Subcategories
 !! <v> subcategories
@@ -82,7 +85,18 @@ VerbRoot ;
 AdjectiveRoot ;
 ProperNounRoot ;
 Determiners ;
+Numerals ;
+Postpositions ;
 
+
+LEXICON POST
+
+%<post%>: # ; 
+
+LEXICON NOM-CLITICS
+
+%+ла%<cnjcoo%>:% л%{A%} # ; ! "and"
+# ;
 
 LEXICON N-Px
 %<px1sg%>:%>%{I%}м N-Case ;
@@ -93,13 +107,13 @@ N-Case ;
 
 LEXICON N-Case
 
-%<nom%>: # ;
-%<acc%>:%>%{N%}%{I%} # ;
-%<gen%>:%>%{N%}%{I%}ҥ # ;
-%<loc%>:%>%{D%}%{A%} # ;
-%<ins%>:%>%{L%}%{A%} # ;
-%<abl%>:%>%{D%}%{A%}ҥ # ;
-%<dat%>:%>%{G%}%{A%} # ;
+%<nom%>: NOM-CLITICS ;
+%<acc%>:%>%{N%}%{I%} NOM-CLITICS ;
+%<gen%>:%>%{N%}%{I%}ҥ NOM-CLITICS ;
+%<loc%>:%>%{D%}%{A%} NOM-CLITICS ;
+%<ins%>:%>%{L%}%{A%} NOM-CLITICS ;
+%<abl%>:%>%{D%}%{A%}ҥ NOM-CLITICS ;
+%<dat%>:%>%{G%}%{A%} NOM-CLITICS ;
 
 LEXICON N-INFL
 
@@ -116,6 +130,7 @@ N-INFL ;
 LEXICON A1
 
 %<adj%>: # ;
+%<adj%>%<subst%>: SUBST-COMMON ;
 
 LEXICON A4
 
@@ -193,12 +208,33 @@ LEXICON NP-TOP
 
 LEXICON DET-DEM
 
-%<det%>%<dem%>: # ;
+%<det%>%<dem%>: NOM-CLITICS ;
 
 LEXICON NP-ORG
 
 %<np%>%<org%>: N-INFL-COMMON ;
 %<np%>%<org%>%<attr%>: # ;
+
+
+LEXICON SUBST-COMMON
+
+%<pl%>:%>%{L%}%{A%}р N-Px ;
+!%<pl%>:%>%{L%}%{A%}р POSSESSION ;
+!%<pl%>:%>%{L%}%{A%}р ABESSIVE-SUFFIX ;
+
+!POSSESSION ;
+!ABESSIVE-SUFFIX ; 
+!LUU-SUFFIX ; 
+
+
+LEXICON NUM-COMMON
+
+%<num%>: # ;
+%<num%>%<subst%>: SUBST-COMMON ;
+
+LEXICON NUM
+
+NUM-COMMON ;
 
 
 
@@ -210,6 +246,11 @@ LEXICON NP-ORG
 LEXICON Determiners
 
 бу:бу DET-DEM ;
+
+LEXICON Postpositions
+
+учун:учун POST ; ! "for, because of"
+узеери:узеери POST ; ! ""
 
 LEXICON NounRoot
 
@@ -239,7 +280,9 @@ LEXICON NounRoot
 ӧй:ӧй N-INFL ; ! "house"
 керек:керек N-INFL ; ! "necessity?"
 јурт:јурт N-INFL ; ! "country?"
-производство:производство ; ! "production"
+производство:производство N-INFL ; ! "production"
+куш:куш N-INFL ; ! "bird"
+баш:баш N-INFL ; ! "head"
 
 LEXICON VerbRoot
 
@@ -261,6 +304,8 @@ LEXICON VerbRoot
 аткар:аткар V-TV ; ! "make happen"
 тургус:тургус V-TV ; ! "stand up; establish" ! Der/Caus
 јет:јет V-IV ; ! "reach"
+ал:ал V-TV ; ! "take"
+кир:кир V-IV ; ! "enter"
 
 
 LEXICON AdjectiveRoot
@@ -276,10 +321,21 @@ LEXICON AdjectiveRoot
 LEXICON ProperNounRoot
 
 Алтай% Республика:Алтай% Республика NP-TOP ;
+Саха% Республика:Саха% Республика NP-TOP ;
 Россия:Россия NP-TOP ;
 Горно%-Алтайск:Горно%-Алтайск NP-TOP ;
+Иркутск:Иркутск NP-TOP ;
+Улан%-Удэ:Улан%-Удэ NP-TOP ;
 
 Госавтоинспекция:Госавтоинспекция NP-ORG ;
+
+
+LEXICON Numerals 
+
+бир:бир NUM ; ! "one"
+
+муҥ:муҥ NUM ; ! "thousand"
+
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon

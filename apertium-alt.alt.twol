@@ -92,10 +92,10 @@ Rules
 "{L} is realised as т after voiceless consonants"
 %{L%}:т <=> :VclsCns/[ :0 ]* _ ;
 
-"Voice certain stem-final coronals when intervocalic"
-VclsCoronal:VcdCoronal <=> :Vow _ %>: :Vow ;
-                       where VclsCoronal in ( с т ш )
-                              VcdCoronal in ( з д ж )
+"Voice certain stem-final consonants when intervocalic"
+VclsCoronal:VcdCoronal <=> :Vow _ [ %>: :Vow ]/[ :0 - %>: ]* ;
+                       where VclsCoronal in ( с т ш п к )
+                              VcdCoronal in ( з д ж б г )
                        matched ;
 
 !!! Case + possessive stuff !!!
@@ -105,6 +105,9 @@ VclsCoronal:VcdCoronal <=> :Vow _ %>: :Vow ;
 
 "Dative {G} deleted after px3sp"
 %{G%}:0 <=> %{n%}: %>: _ ;
+
+"{n} is н before locative"
+%{n%}:н <=> _ %>: %{D%}: %{A%}: .#. ;
 
 
 ! Resources:
