@@ -54,6 +54,7 @@ Multichar_Symbols
 ! Possessive
 %<px1sg%>
 %<px2sg%>
+%<px3sp%>
 
 ! Case
 %<nom%>
@@ -325,6 +326,9 @@ LEXICON NounRoot
 ада%-эне N-INFL ; ! "parent(s)"
 јаш:јаш N-INFL ; ! "age"
 отургыш:отургыш N-INFL ; ! "seat(?)"
+ӱредӱчи:ӱредӱчи N-INFL ; ! "teacher"
+кӱч:кӱч N-INFL ; ! "strength"
+станция:станция N-INFL-RUS ; ! "station"
 
 
 LEXICON VerbRoot
@@ -333,7 +337,7 @@ LEXICON VerbRoot
 де:де V-IV ; ! "say"
 чык:чык V-IV ; ! "leave"
 јӱр:јӱр V-IV ; ! "go"
-иште:ишет V-IV ; ! "work"
+иште:иште V-IV ; ! "work"
 ӧт:ӧт V-IV ; ! "pass, happen"
 бол:бол V-IV; ! "be"
 сат:сат V-TV ; ! "sell"
@@ -350,6 +354,7 @@ LEXICON VerbRoot
 ал:ал V-TV ; ! "take"
 кир:кир V-IV ; ! "enter"
 кӧр:кӧр V-TV ; ! "see"
+ӱрен:ӱрен V-TV ; ! "learn"
 
 
 LEXICON AdjectiveRoot

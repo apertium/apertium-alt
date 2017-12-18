@@ -38,6 +38,9 @@ Sonorant =  й Л М Н Ҥ Р
 VcdLowSon = Л М Н Ҥ
             л м н ҥ ;
 
+Nasal = М Н Ҥ
+        м н ҥ ;
+
 Rules 
 
 !!! Vowel stuff !!!
@@ -45,11 +48,11 @@ Rules
 "{I} deletes after another vowel"
 %{I%}:0 <=> :Vow/[ :0 ]* _ ;
 
-"{I} front rounding harmony"
-%{I%}:ӱ <=> [ :ӱ :Cns+ ]/[ :0 ]* _ ;
+!"{I} front rounding harmony"
+!%{I%}:ӱ <=> [ :ӱ :Cns+ ]/[ :0 ]* _ ;
 
 "{I} front harmony"
-%{I%}:и <=> [ [ :ӧ | :и | :э | :е ] :Cns+ ]/[ :0 ]* _ ;
+%{I%}:и <=> [ [ :ӱ | :ӧ | :и | :э | :е ] :Cns+ ]/[ :0 ]* _ ;
 
 "{A} front harmony"
 %{A%}:е <=> [ [ :ӱ | :и | :э | :е ] :Cns+ ]/[ :0 ]* _ ;
@@ -81,6 +84,8 @@ Rules
 
 "{N} is realised as д after sonorants"
 %{N%}:д <=> :Sonorant/[ :0 ]* _ ;
+        except
+            :Nasal %>: _ [ :Vow :Nasal ]/[ :0 ]* ;
 
 "{D} is realised as т after voiceless consonants"
 %{D%}:т <=> :VclsCns/[ :0 - %{n%}: ]* _ ;
