@@ -27,6 +27,8 @@ Multichar_Symbols
 !! <np> subcategories
 %<top%> ! Toponym
 %<org%> ! Organisation
+%<ant%> ! Anthroponym
+%<pat%> ! Patronymic
 !! <det> subcategories
 %<dem%> ! Demonstrative
 !! <prn> subcategories
@@ -46,11 +48,18 @@ Multichar_Symbols
 %<p2%>
 %<p3%>
 
+! Gender
+%<m%>
+%<f%>
+%<mf%>
+
 ! Non-finite forms
 %<prc_perf%>
 %<gpr_past%>
 %<gpr_impf%>
 %<gna_cond%>
+%<gna_perf%>
+%<gna_impf%>
 
 ! Possessive
 %<px1sg%>
@@ -192,12 +201,17 @@ LEXICON V-NonFinite
 %<gpr_impf%>:%>%{E%}т%{A%}н V-Gpr ;
 
 %<gna_cond%>:%>%{Z%}%{A%} V-Person-Cond ;
+%<gna_impf%>:%>%{E%} # ;
 
 
 LEXICON V-NonFinite-Irreg
 
 %<prc_perf%>:%>%{I%}п # ;
 %<neg%>%<prc_perf%>:%>%{B%}%{A%}%>%{E%} # ;
+
+%<gna_perf%>:%>%{I%}п # ;
+%<neg%>%<gna_perf%>:%>%{B%}%{A%}%>%{E%} # ;
+
 
 LEXICON V-RegNeg
 
@@ -239,6 +253,20 @@ LEXICON NP-ORG
 
 %<np%>%<org%>: N-INFL-COMMON ;
 %<np%>%<org%>%<attr%>: # ;
+
+LEXICON NP-ANT-M
+
+%<np%>%<ant%>%<m%>: N-INFL-COMMON ; ! NP-COMMON
+%<np%>%<ant%>%<m%>%<pl%>:%>%{L%}%{A%}р N-INFL-COMMON ; ! NP-COMMON
+
+LEXICON NP-PAT-VICH
+
+! For patronyms ending with -вич
+! Their feminine equivalets end with -вна
+
+%<np%>%<pat%>%<m%>:вич N-INFL-COMMON ; ! NP-COMMON ;
+%<np%>%<pat%>%<f%>:вна N-INFL-COMMON ; ! NP-COMMON ;
+
 
 
 LEXICON SUBST-COMMON
@@ -340,6 +368,8 @@ LEXICON NounRoot
 станция:станция N-INFL-RUS ; ! "station"
 участок:участок N-INFL-RUS ; ! ""
 ич:ич N-INFL ; ! "inside"
+тöзöлгö:тöзöлгö N-INFL ; ! "basis"
+база:база N-INFL ; ! "base"
 
 
 LEXICON VerbRoot
@@ -362,6 +392,7 @@ LEXICON VerbRoot
 аткар:аткар V-TV ; ! "make happen"
 тургус:тургус V-TV ; ! "stand up; establish" ! Der/Caus
 јет:јет V-IV ; ! "reach"
+јетир:јетир V-TV ; ! "make reach" ! Der/Caus
 ал:ал V-TV ; ! "take"
 кир:кир V-IV ; ! "enter"
 кӧр:кӧр V-TV ; ! "see"
@@ -393,6 +424,12 @@ LEXICON ProperNounRoot
 Майма:Майма NP-TOP ;
 
 Госавтоинспекция:Госавтоинспекция NP-ORG ;
+
+
+Иван:Иван NP-ANT-M ;
+
+
+Васильевич:Василье NP-PAT-VICH ;
 
 
 LEXICON Numerals 
