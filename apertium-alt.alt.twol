@@ -4,6 +4,7 @@ Alphabet
  %0 1 2 3 4 5 6 7 8 9
 
  %{I%}:ы
+ %{i%}:ы
  %{N%}:н
  %{D%}:д
  %{A%}:а
@@ -49,14 +50,23 @@ Rules
 "{I} deletes after another vowel"
 %{I%}:0 <=> :Vow/[ :0 ]* _ ;
 
+"{i} deletes after another vowel"
+%{i%}:0 <=> :Vow/[ :0 ]* _ ;
+
 !"{I} front rounding harmony"
 !%{I%}:ӱ <=> [ :ӱ :Cns+ ]/[ :0 ]* _ ;
 
 "{I} front harmony"
 %{I%}:и <=> [ [ :ӱ | :ӧ | :и | :э | :е ] :Cns+ ]/[ :0 ]* _ ;
 
-"{I} back rounding harmony"
-%{I%}:у <=> [ [ :о | :ё | :у | :ю ] :Cns+ ]/[ :0 ]* _ ;
+"{i} front harmony"
+%{i%}:и <=> [ [ :и | :э | :е ] :Cns+ ]/[ :0 ]* _ ;
+
+"{i} back rounding harmony"
+%{i%}:у <=> [ [ :о | :ё | :у | :ю ] :Cns+ ]/[ :0 ]* _ ;
+
+"{i} front rounding harmony"
+%{i%}:у <=> [ [ :ӱ | :ӧ ] :Cns+ ]/[ :0 ]* _ ;
 
 "{A} front harmony"
 %{A%}:е <=> [ [ :ӱ | :и | :э | :е ] :Cns+ ]/[ :0 ]* _ ;
