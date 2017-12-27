@@ -32,8 +32,9 @@ Multichar_Symbols
 !! <np> subcategories
 %<top%> ! Toponym
 %<org%> ! Organisation
-%<ant%> ! Anthroponym
+%<ant%> ! Anthroponym ! first name
 %<pat%> ! Patronymic
+%<cog%> ! Cognomen    ! last name
 !! <det> subcategories
 %<dem%> ! Demonstrative
 !! <prn> subcategories
@@ -119,11 +120,17 @@ Pronouns ;
 Punctuation ;
 Auxiliaries ;
 Copula ;
+Conjunctions ;
+Interjections ;
 
 
 LEXICON POST
 
 %<post%>: # ; 
+
+LEXICON POSTADV
+
+%<postadv%>: # ;
 
 LEXICON NOM-CLITICS
 
@@ -150,7 +157,7 @@ N-Case ;
 
 LEXICON COPULA
 
-%+э%<cop%>%<aor%>%<p3%>%<sg%>: # ;
+%+э%<cop%>%<npst%>%<p3%>%<sg%>: # ;
 
 
 LEXICON NOM-COP-CLITICS
@@ -286,7 +293,12 @@ LEXICON V-TV
 
 LEXICON Vaux-Jat-Person
 
+%<p1%>%<sg%>:%>%{i%}м # ;
+%<p1%>%<pl%>:%>%{i%}с # ;
+%<p2%>%<sg%>:%>%{i%}ҥ # ;
+%<p2%>%<pl%>:%>%{i%}г%{A%}р # ;
 %<p3%>%<sg%>: # ;
+%<p3%>%<pl%>:%>%{i%}%{L%}%{A%}р # ;
 
 
 LEXICON Vaux-Jat
@@ -321,6 +333,11 @@ LEXICON NP-ANT-M
 %<np%>%<ant%>%<m%>: N-INFL-COMMON ; ! NP-COMMON
 %<np%>%<ant%>%<m%>%<pl%>:%>%{L%}%{A%}р N-INFL-COMMON ; ! NP-COMMON
 
+LEXICON NP-ANT-F
+
+%<np%>%<ant%>%<f%>: N-INFL-COMMON ; ! NP-COMMON
+%<np%>%<ant%>%<f%>%<pl%>:%>%{L%}%{A%}р N-INFL-COMMON ; ! NP-COMMON
+
 LEXICON NP-PAT-VICH
 
 ! For patronyms ending with -вич
@@ -328,6 +345,14 @@ LEXICON NP-PAT-VICH
 
 %<np%>%<pat%>%<m%>:вич N-INFL-COMMON ; ! NP-COMMON ;
 %<np%>%<pat%>%<f%>:вна N-INFL-COMMON ; ! NP-COMMON ;
+
+LEXICON NP-COG-MF
+
+! Dual-gender cognoms.
+! Don't derive anything
+
+%<np%>%<cog%>%<mf%>: N-INFL-COMMON ;
+%<np%>%<cog%>%<mf%>%<pl%>:%>%{L%}%{A%}р N-INFL-COMMON ;
 
 
 
@@ -376,6 +401,7 @@ LEXICON PersonalPronouns
 мен%<prn%>%<pers%>%<p1%>%<sg%>:ме PRON-P12SG-CASES ;
 сен%<prn%>%<pers%>%<p2%>%<sg%>:се PRON-P12SG-CASES ;
 
+бис%<prn%>%<pers%>%<p1%>%<pl%>:бис N-Case ;
 слер%<prn%>%<pers%>%<p2%>%<pl%>:слер N-Case ;
 
 ол%<prn%>%<pers%>%<p3%>%<sg%>:о PRON-P3SG-CASES ;
@@ -403,7 +429,9 @@ LEXICON CC
 
 %<cnjcoo%>: # ;
 
+LEXICON INTERJ
 
+%<ij%>: # ;
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -413,7 +441,20 @@ LEXICON CC
 
 LEXICON Conjunctions
 
-јана:јана CC ;
+јана:јана CC ; ! "and"
+је:је CC ; ! "but"
+
+база:база POSTADV ; ! "also"
+
+ла:ла CC ; ! "and" ! Dir/LR
+ла:ле CC ; ! "and" ! Dir/LR
+ла:ло CC ; ! "and" ! Dir/LR
+ла:лӧ CC ; ! "and" ! Dir/LR
+да:да POSTADV ; ! "and" ! Dir/LR
+да:де POSTADV ; ! "and" ! Dir/LR
+да:до POSTADV ; ! "and" ! Dir/LR
+да:дӧ POSTADV ; ! "and" ! Dir/LR
+
 
 LEXICON Determiners
 
@@ -424,8 +465,10 @@ LEXICON Postpositions
 учун:учун POST ; ! "for, because of"
 узеери:узеери POST ; ! ""
 аайынча:аайынча POST ; ! "according to"
-улам:улам POST ; ! ""
-кожо:кожо POST ; ! "together with"
+улам:улам POST ; ! "" +abl
+кожо:кожо POST ; ! "together with" +ins
+чылап:чылап POST ; ! "like" +acc
+чылап:чилеп POST ; ! "like" +acc
 
 LEXICON Pronouns
 
@@ -440,7 +483,6 @@ PersonalPronouns ;
 
 LEXICON NounRoot
 
-!house:house RegNounInfl ; ! A noun
 бӧрӱ:бӧрӱ N-INFL ; ! "wolf"
 болчок:болчок N-INFL ; ! "lump"
 кӧл:кӧл N-INFL ; ! "lake"
@@ -463,7 +505,8 @@ LEXICON NounRoot
 акча:акча N-INFL ; ! "money"
 билим:билим N-INFL ; ! "knowledge, science"
 сайт:сайт N-INFL ; ! "site"
-ӧй:ӧй N-INFL ; ! "house"
+ӧй:ӧй N-INFL ; ! "time"
+ӱй:ӱй N-INFL ; ! "house"
 керек:керек N-INFL ; ! "necessity?"
 јурт:јурт N-INFL ; ! "country?"
 производство:производство N-INFL-RUS ; ! "production"
@@ -497,6 +540,16 @@ LEXICON NounRoot
 сӧс:сӧс N-INFL ; ! "word"
 тӱжӱм:тӱжӱм N-INFL ; ! "harvest?"
 таш:таш N-INFL ; ! "stone"
+ат:ат N-INFL ; ! "name"
+эне:эне N-INFL ; ! "mother"
+эш%-нӧкӧр N-INFL ; ! "husband"
+санаа:санаа N-INFL ; ! "thought(s)"
+каан:каан N-INFL ; ! "king"
+ада%-ӧбӧкӧ:ада%-ӧбӧкӧ N-INFL ; ! "ancestor"
+калдык:калдык N-INFL ; ! "descendant"
+кой:кой N-INFL ; ! "sheep"
+орто:орто N-INFL ; ! "middle"
+ӱйе:ӱйе N-INFL ; ! "generation"
 
 
 LEXICON Copula
@@ -507,6 +560,7 @@ LEXICON Copula
 LEXICON Auxiliaries
 
 јат:јат Vaux-Jat ;
+тур:тур Vaux-Jat ;
 тур:тур Vaux ;
 чык:чык Vaux ;
 бол:бол Vaux ;
@@ -545,6 +599,7 @@ LEXICON VerbRoot
 бӱдӱр:бӱдӱр V-TV ; ! "finish" ! Der/Caus
 темдекте:темдекте V-TV ; ! "observe, celebrate"
 айт:айт V-IV ; ! "say"
+сок:сок V-TV ; ! "hit?"
 кел:кел V-IV ; ! "come"
 бар:бар V-IV ; ! "go"
 бӱт:бӱт V-IV ; ! "finish"
@@ -552,9 +607,18 @@ LEXICON VerbRoot
 чык:чык V-IV ; ! "leave"
 ук:ук V-TV ; ! "hear, listen to"
 бас:бас V-IV ; ! "step?"
+сок:сок V-TV ; ! "hit?"
+ий:ий V-IV ; ! "send"
+ӧлтӱр:ӧлтӱр V-TV ; ! "kill"
+тыҥда:тыҥда V-TV ; ! "listen"
+бичи:бичи V-TV ; ! "write"
+јандыр:јандыр V-TV ; ! "turn on?"
+туу:туу V-TV ; ! "to bear child"
 
 
+LEXICON Interjections
 
+је:је INTERJ ;
 
 LEXICON AdjectiveRoot
 
@@ -569,6 +633,8 @@ LEXICON AdjectiveRoot
 јаҥыс:јаҥыс A1 ; ! "alone"
 ачу:ачу A1 ; ! "strong-flavoured"
 јаман:јаман A1 ; ! "bad"
+улу:улу A1 ; ! "old"
+ак:ак A1 ; ! "white"
 
 LEXICON ProperNounRoot
 
@@ -583,12 +649,20 @@ LEXICON ProperNounRoot
 Москва:Москва NP-TOP ;
 Майма:Майма NP-TOP ;
 Алтай:Алтай NP-TOP ; ! "Altay"
+Вавилон:Вавилон NP-TOP ; ! "Babylon"
 
 Госавтоинспекция:Госавтоинспекция NP-ORG ;
 
 
-Иван:Иван NP-ANT-M ;
-Иисус:Иисус NP-ANT-M ;
+Иван:Иван NP-ANT-M ; ! "Ivan"
+Иисус:Иисус NP-ANT-M ; ! "Jesus"
+Давид:Давид NP-ANT-M ; ! "David"
+Мария:Мария NP-ANT-F ; ! "Maria"
+Авраам:Авраам NP-ANT-M ; ! "Abraham"
+Исаак:Исаак NP-ANT-M ; ! "Isaac"
+Павел:Павел NP-ANT-M ; ! "Paul"
+
+Христос:Христос NP-COG-MF ; !
 
 
 Васильевич:Василье NP-PAT-VICH ;
@@ -599,7 +673,7 @@ LEXICON Numerals
 бир:бир NUM ; ! "one"
 эки:эки NUM ; ! "two"
 ӱч:ӱч NUM ; ! "three"
-
+тӧрт:тӧрт NUM ; ! "four"
 беш:беш NUM ; ! "five"
 
 одус:одус NUM ; ! "thirty"
