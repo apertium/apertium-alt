@@ -49,6 +49,7 @@ Rules
 
 "{I} deletes after another vowel"
 %{I%}:0 <=> :Vow/[ :0 ]* _ ;
+            [ %{n%}: %{N%}: ]/[ :0 - [ %{n%}: | %{N%}: ] ]* _ .#. ; ! px3sp.acc
 
 "{i} deletes after another vowel"
 %{i%}:0 <=> :Vow/[ :0 ]* _ ;
@@ -58,6 +59,8 @@ Rules
 
 "{I} front harmony"
 %{I%}:и <=> [ [ :ӱ | :ӧ | :и | :э | :е ] :Cns+ ]/[ :0 ]* _ ;
+        except
+            [ %{n%}: %{N%}: ]/[ :0 - [ %{n%}: | %{N%}: ] ]* _ .#. ;
 
 "{i} front harmony"
 %{i%}:и <=> [ [ :и | :э | :е ] :Cns+ ]/[ :0 ]* _ ;
@@ -66,7 +69,7 @@ Rules
 %{i%}:у <=> [ [ :о | :ё | :у | :ю ] :Cns+ ]/[ :0 ]* _ ;
 
 "{i} front rounding harmony"
-%{i%}:у <=> [ [ :ӱ | :ӧ ] :Cns+ ]/[ :0 ]* _ ;
+%{i%}:ӱ <=> [ [ :ӱ | :ӧ ] :Cns+ ]/[ :0 ]* _ ;
 
 "{A} front harmony"
 %{A%}:е <=> [ [ :ӱ | :и | :э | :е ] :Cns+ ]/[ :0 | %  ]* _ ;
@@ -121,7 +124,7 @@ Rules
 %{L%}:т <=> :VclsCns/[ :0 ]* _ ;
 
 "Voice certain stem-final consonants when intervocalic"
-VclsCoronal:VcdCoronal <=> :Vow _ [ %>: :Vow ]/[ :0 - %>: ]* ;
+VclsCoronal:VcdCoronal <=> [ :Vow | :й ] _ [ %>: :Vow ]/[ :0 - %>: ]* ;
                        where VclsCoronal in ( с т ш п к )
                               VcdCoronal in ( з д ж б г )
                        matched ;

@@ -117,6 +117,7 @@ Postpositions ;
 Pronouns ;
 Punctuation ;
 Auxiliaries ;
+Copula ;
 
 
 LEXICON POST
@@ -134,7 +135,7 @@ LEXICON PRC-CLITICS
 %+да%<postadv%>:% %{D%}%{A%} # ; ! "also"
 # ;
 
-LEXICON ADJ-CLITCIS
+LEXICON ADJ-CLITICS
 
 %+да%<postadv%>:% %{D%}%{A%} # ; ! "also"
 # ;
@@ -202,13 +203,18 @@ LEXICON V-Person-Fut
 
 LEXICON V-Person-Opt
 
-%<p3%>%<sg%>:%{Z%}%{I%}н # ;
-%<p3%>%<pl%>:%{Z%}%{I%}н # ;
+%<p3%>%<sg%>:%>%{Z%}%{I%}н # ;
+%<p3%>%<pl%>:%>%{Z%}%{I%}н # ;
 
 LEXICON V-Person-Cond
 
 %<p3%>%<sg%>: # ;
 %<p3%>%<pl%>: # ;
+
+LEXICON V-Person-Ifi
+
+%<p3%>%<sg%>: # ;
+%<p3%>%<pl%>:%>%{L%}%{A%}р # ;
 
 LEXICON V-Tense-Irreg
 
@@ -220,6 +226,7 @@ LEXICON V-Tense
 %<imp%>: # ;
 %<npst%>:%>%{E%} V-Person-NPast ;
 %<opt%>: V-Person-Opt ;
+%<ifi%>:%>%{D%}%{I%} V-Person-Ifi ;
 
 LEXICON V-Gpr
 
@@ -334,18 +341,32 @@ LEXICON NUM
 
 NUM-COMMON ;
 
+LEXICON PRON-CASE-COMMON
+
+%<acc%>:%>%{N%}%{I%} NOM-CLITICS ;
+%<gen%>:%>%{N%}%{I%}ҥ NOM-CLITICS ;
+%<loc%>:н%>%{D%}%{A%} NOM-COP-CLITICS ;
+%<abl%>:%>н%{A%}ҥ NOM-COP-CLITICS ;
+
 LEXICON PRON-P3SG-CASES
 
 %<nom%>:л NOM-CLITICS ;
-%<acc%>:%>%{N%}%{I%} NOM-CLITICS ;
-%<gen%>:%>%{N%}%{I%}ҥ NOM-CLITICS ;
-%<loc%>:%>н%{D%}%{A%} NOM-CLITICS ;
-%<abl%>:%>н%{A%}ҥ NOM-CLITICS ;
-%<dat%>:%>%{G%}%{A%} NOM-CLITICS ;
+%<dat%>:%>%{G%}%{A%} NOM-CLITICS ; ! FIXME: CHECK
+PRON-CASE-COMMON ;
 
+LEXICON PRON-P12SG-CASES
+
+%<nom%>:н NOM-CLITICS ;
+%<dat%>:%>%{G%}%{A%} NOM-CLITICS ; ! FIXME: CHECK
+PRON-CASE-COMMON ;
 
 
 LEXICON PersonalPronouns
+
+мен%<prn%>%<pers%>%<p1%>%<sg%>:ме PRON-P12SG-CASES ;
+сен%<prn%>%<pers%>%<p2%>%<sg%>:се PRON-P12SG-CASES ;
+
+слер%<prn%>%<pers%>%<p2%>%<pl%>:слер N-Case ;
 
 ол%<prn%>%<pers%>%<p3%>%<sg%>:о PRON-P3SG-CASES ;
 олор%<prn%>%<pers%>%<p3%>%<pl%>:олор N-Case ;
@@ -364,6 +385,11 @@ LEXICON PRON-REF
 ! CHECK
 !%<prn%>%<ref%>%<px3pl%>:%>д%{A%}р%>%{S%}%{I%}%{n%} PRON-REF-ADV ;
 
+LEXICON PRON-ITG-INFL
+
+%<prn%>%<itg%>: N-Case ;
+
+
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -380,6 +406,7 @@ LEXICON Postpositions
 узеери:узеери POST ; ! ""
 аайынча:аайынча POST ; ! "according to"
 улам:улам POST ; ! ""
+кожо:кожо POST ; ! "together with"
 
 LEXICON Pronouns
 
@@ -387,6 +414,10 @@ LEXICON Pronouns
 PersonalPronouns ;
 
 бой:бой PRON-REF ; ! "self"
+
+не:не PRON-ITG-INFL ; ! "what"
+кем:кем PRON-ITG-INFL ; ! "who"
+
 
 LEXICON NounRoot
 
@@ -443,12 +474,19 @@ LEXICON NounRoot
 аспирант:аспирант N-INFL-RUS ; ! "grad student"
 јылдык:јылдык N-INFL ; ! "anniversary"
 округ:округ N-INFL-RUS ; ! "okrug"
+Кудай:кудай N-INFL ; ! "God"
+сӧс:сӧс N-INFL ; ! "word"
 
+LEXICON Copula
+
+э%<cop%>%<ifi%>:э%>%{D%}%{I%} V-Person-Ifi ;
+э%<cop%>%<gna_cond%>:%>%{Z%}%{A%} V-Person-Cond ;
 
 LEXICON Auxiliaries
 
 јат:јат Vaux-Jat ;
 тур:тур Vaux ;
+чык:чык Vaux ;
 
 
 LEXICON VerbRoot
@@ -481,6 +519,12 @@ LEXICON VerbRoot
 јат:јат V-IV ; ! "lie, be?"
 бӱдӱр:бӱдӱр V-TV ; ! "finish" ! Der/Caus
 темдекте:темдекте V-TV ; ! "observe, celebrate"
+айт:айт V-IV ; ! "say"
+кел:кел V-IV ; ! "come"
+бар:бар V-IV ; ! "go"
+бӱт:бӱт V-IV ; ! "finish"
+бил:бил V-TV ; ! "know"
+чык:чык V-IV ; ! "leave"
 
 
 
@@ -497,6 +541,7 @@ LEXICON AdjectiveRoot
 ӧскӧ:ӧскӧ A1 ; ! "other?"
 јаҥыс:јаҥыс A1 ; ! "alone"
 ачу:ачу A1 ; ! "strong-flavoured"
+јаман:јаман A1 ; ! "bad"
 
 LEXICON ProperNounRoot
 
@@ -516,6 +561,7 @@ LEXICON ProperNounRoot
 
 
 Иван:Иван NP-ANT-M ;
+Иисус:Иисус NP-ANT-M ;
 
 
 Васильевич:Василье NP-PAT-VICH ;
