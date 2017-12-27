@@ -15,6 +15,7 @@ Multichar_Symbols
 %<sent%>    ! Sentence-level punctuation
 %<cm%>      ! comma
 %<num%>     ! number
+%<cop%>     ! Copula
 
 ! Number morphology
 %<pl%>  ! Plural
@@ -37,6 +38,7 @@ Multichar_Symbols
 %<dem%> ! Demonstrative
 !! <prn> subcategories
 %<pers%> ! Personal
+%<ref%>  ! Reflexive
 
 ! Misc verb stuff
 %<neg%>
@@ -114,6 +116,7 @@ Numerals ;
 Postpositions ;
 Pronouns ;
 Punctuation ;
+Auxiliaries ;
 
 
 LEXICON POST
@@ -143,14 +146,24 @@ LEXICON N-Px
 
 N-Case ;
 
+LEXICON COPULA
+
+%+э%<cop%>%<aor%>%<p3%>%<sg%>: # ;
+
+
+LEXICON NOM-COP-CLITICS
+
+NOM-CLITICS ;
+COPULA ;
+
 LEXICON N-Case
 
 %<nom%>: NOM-CLITICS ;
 %<acc%>:%>%{N%}%{I%} NOM-CLITICS ;
 %<gen%>:%>%{N%}%{I%}ҥ NOM-CLITICS ;
-%<loc%>:%>%{D%}%{A%} NOM-CLITICS ;
-%<ins%>:%>л%{A%} NOM-CLITICS ;
-%<abl%>:%>%{D%}%{A%}ҥ NOM-CLITICS ;
+%<loc%>:%>%{D%}%{A%} NOM-COP-CLITICS ;
+%<ins%>:%>л%{A%} NOM-COP-CLITICS ;
+%<abl%>:%>%{D%}%{A%}ҥ NOM-COP-CLITICS ;
 %<dat%>:%>%{G%}%{A%} NOM-CLITICS ;
 
 LEXICON N-INFL
@@ -254,6 +267,21 @@ LEXICON V-TV
 %<v%>%<tv%>: V-Common ;
 %<v%>%<tv%>%<pass%>:%>%{I%}%{l%} V-Common ;
 
+LEXICON Vaux-Jat-Person
+
+%<p3%>%<sg%>: # ;
+
+
+LEXICON Vaux-Jat
+
+%<vaux%>%<prog%>: Vaux-Jat-Person ;
+
+LEXICON Vaux
+
+%<vaux%>: V-Common ;
+
+
+
 LEXICON N-INFL-COMMON
 
 N-Px ;
@@ -308,7 +336,7 @@ NUM-COMMON ;
 
 LEXICON PRON-P3SG-CASES
 
-%<nom%>:л CLITICS ;
+%<nom%>:л NOM-CLITICS ;
 %<acc%>:%>%{N%}%{I%} NOM-CLITICS ;
 %<gen%>:%>%{N%}%{I%}ҥ NOM-CLITICS ;
 %<loc%>:%>н%{D%}%{A%} NOM-CLITICS ;
@@ -323,6 +351,21 @@ LEXICON PersonalPronouns
 олор%<prn%>%<pers%>%<p3%>%<pl%>:олор N-Case ;
 
 
+LEXICON PRON-REF-ADV
+
+N-Case ;
+
+LEXICON PRON-REF
+
+%<prn%>%<ref%>%<px1sg%>:%>%{I%}м PRON-REF-ADV ;
+%<prn%>%<ref%>%<px2sg%>:%>%{I%}ҥ PRON-REF-ADV ;
+%<prn%>%<ref%>%<px3sp%>:%>%{z%}%{I%}%{n%} PRON-REF-ADV ;
+
+! CHECK
+!%<prn%>%<ref%>%<px3pl%>:%>д%{A%}р%>%{S%}%{I%}%{n%} PRON-REF-ADV ;
+
+
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -335,11 +378,15 @@ LEXICON Postpositions
 
 учун:учун POST ; ! "for, because of"
 узеери:узеери POST ; ! ""
+аайынча:аайынча POST ; ! "according to"
+улам:улам POST ; ! ""
 
 LEXICON Pronouns
 
 !DemonstrativePronouns
 PersonalPronouns ;
+
+бой:бой PRON-REF ; ! "self"
 
 LEXICON NounRoot
 
@@ -385,10 +432,23 @@ LEXICON NounRoot
 станция:станция N-INFL-RUS ; ! "station"
 участок:участок N-INFL-RUS ; ! ""
 ич:ич N-INFL ; ! "inside"
-тöзöлгö:тöзöлгö N-INFL ; ! "basis"
+тӧзӧлгӧ:тӧзӧлгӧ N-INFL ; ! "basis"
 база:база N-INFL ; ! "base"
 тил:тил N-INFL ; ! "language, tongue"
 бӧлӱк:бӧлӱк N-INFL ; ! "section"
+алтай:алтай N-INFL ; ! "Altay"
+аш:аш N-INFL ; ! "food?"
+сурак:сурак N-INFL ; ! "question"
+студент:студент N-INFL-RUS ; ! "university student"
+аспирант:аспирант N-INFL-RUS ; ! "grad student"
+јылдык:јылдык N-INFL ; ! "anniversary"
+округ:округ N-INFL-RUS ; ! "okrug"
+
+
+LEXICON Auxiliaries
+
+јат:јат Vaux-Jat ;
+тур:тур Vaux ;
 
 
 LEXICON VerbRoot
@@ -417,6 +477,12 @@ LEXICON VerbRoot
 кӧр:кӧр V-TV ; ! "see"
 ӱрен:ӱрен V-TV ; ! "learn"
 эт:эт V-TV ; ! "make"
+ада:ада V-TV ; ! "name"
+јат:јат V-IV ; ! "lie, be?"
+бӱдӱр:бӱдӱр V-TV ; ! "finish" ! Der/Caus
+темдекте:темдекте V-TV ; ! "observe, celebrate"
+
+
 
 
 LEXICON AdjectiveRoot
@@ -427,7 +493,10 @@ LEXICON AdjectiveRoot
 кӧп:кӧп A4 ;
 эмес:эмес A4 ;
 керек:керек A4 ;
-кичӱ:кичӱ A1 ;
+кичӱ:кичӱ A1 ; ! "small"
+ӧскӧ:ӧскӧ A1 ; ! "other?"
+јаҥыс:јаҥыс A1 ; ! "alone"
+ачу:ачу A1 ; ! "strong-flavoured"
 
 LEXICON ProperNounRoot
 
@@ -441,6 +510,7 @@ LEXICON ProperNounRoot
 Новосибирск:Новосибирск NP-TOP ;
 Москва:Москва NP-TOP ;
 Майма:Майма NP-TOP ;
+Алтай:Алтай NP-TOP ; ! "Altay"
 
 Госавтоинспекция:Госавтоинспекция NP-ORG ;
 
@@ -454,6 +524,10 @@ LEXICON ProperNounRoot
 LEXICON Numerals 
 
 бир:бир NUM ; ! "one"
+эки:эки NUM ; ! "two"
+ӱч:ӱч NUM ; ! "three"
+
+беш:беш NUM ; ! "five"
 
 муҥ:муҥ NUM ; ! "thousand"
 
