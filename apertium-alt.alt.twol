@@ -16,6 +16,7 @@ Alphabet
  %{G%}:г
  %{l%}:л
  %{Z%}:з
+ %{U%}:у
  
  %-
  %+
@@ -92,6 +93,8 @@ Rules
 "{E} as й after a vowel"
 %{E%}:й <=> :Vow/[ :0 ]* _ ;
 
+"{U} front harmony"
+%{U%}:ӱ <=> [ [ :ӱ | :ӧ | :и | :э | :е ] :Cns+ ]/[ :0 ]* _ ;
 
 
 !!! Consonant stuff !!!

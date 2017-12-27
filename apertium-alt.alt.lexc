@@ -96,6 +96,7 @@ Multichar_Symbols
 %{G%}
 %{l%}
 %{Z%}
+%{U%}
 %+
 %-
 % 
@@ -166,6 +167,7 @@ LEXICON N-Case
 %<ins%>:%>л%{A%} NOM-COP-CLITICS ;
 %<abl%>:%>%{D%}%{A%}ҥ NOM-COP-CLITICS ;
 %<dat%>:%>%{G%}%{A%} NOM-CLITICS ;
+%+лу%<post%>:%>%{L%}%{U%} NOM-COP-CLITICS ;
 
 LEXICON N-INFL
 
@@ -203,6 +205,8 @@ LEXICON V-Person-Fut
 
 LEXICON V-Person-Opt
 
+%<p1%>%<sg%>:%>%{A%}й%{I%}н # ;
+
 %<p3%>%<sg%>:%>%{Z%}%{I%}н # ;
 %<p3%>%<pl%>:%>%{Z%}%{I%}н # ;
 
@@ -213,8 +217,14 @@ LEXICON V-Person-Cond
 
 LEXICON V-Person-Ifi
 
+%<p1%>%<sg%>:м # ;
 %<p3%>%<sg%>: # ;
 %<p3%>%<pl%>:%>%{L%}%{A%}р # ;
+
+LEXICON V-Person-Imp
+
+%<p2%>%<sg%>: # ;
+%<p2%>%<pl%>:%>%{i%}г%{A%}р # ;
 
 LEXICON V-Tense-Irreg
 
@@ -223,7 +233,7 @@ LEXICON V-Tense-Irreg
 
 LEXICON V-Tense
 
-%<imp%>: # ;
+%<imp%>: V-Person-Imp ;
 %<npst%>:%>%{E%} V-Person-NPast ;
 %<opt%>: V-Person-Opt ;
 %<ifi%>:%>%{D%}%{I%} V-Person-Ifi ;
@@ -389,12 +399,21 @@ LEXICON PRON-ITG-INFL
 
 %<prn%>%<itg%>: N-Case ;
 
+LEXICON CC
+
+%<cnjcoo%>: # ;
+
 
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+LEXICON Conjunctions
+
+јана:јана CC ;
 
 LEXICON Determiners
 
@@ -476,6 +495,9 @@ LEXICON NounRoot
 округ:округ N-INFL-RUS ; ! "okrug"
 Кудай:кудай N-INFL ; ! "God"
 сӧс:сӧс N-INFL ; ! "word"
+тӱжӱм:тӱжӱм N-INFL ; ! "harvest?"
+таш:таш N-INFL ; ! "stone"
+
 
 LEXICON Copula
 
@@ -487,6 +509,9 @@ LEXICON Auxiliaries
 јат:јат Vaux-Jat ;
 тур:тур Vaux ;
 чык:чык Vaux ;
+бол:бол Vaux ;
+кал:кал Vaux ;
+кой:кой Vaux ;
 
 
 LEXICON VerbRoot
@@ -525,6 +550,8 @@ LEXICON VerbRoot
 бӱт:бӱт V-IV ; ! "finish"
 бил:бил V-TV ; ! "know"
 чык:чык V-IV ; ! "leave"
+ук:ук V-TV ; ! "hear, listen to"
+бас:бас V-IV ; ! "step?"
 
 
 
@@ -575,6 +602,9 @@ LEXICON Numerals
 
 беш:беш NUM ; ! "five"
 
+одус:одус NUM ; ! "thirty"
+
+јӱс:јӱс NUM ; ! "hundred"
 муҥ:муҥ NUM ; ! "thousand"
 
 
