@@ -11,6 +11,10 @@ Multichar_Symbols
 %<cnjcoo%>  ! Coordinating conjunction
 %<post%>    ! Postpositions
 %<prn%>     ! Pronoun
+%<postadv%> ! Post-adverb
+%<sent%>    ! Sentence-level punctuation
+%<cm%>      ! comma
+%<num%>     ! number
 
 ! Number morphology
 %<pl%>  ! Plural
@@ -32,7 +36,7 @@ Multichar_Symbols
 !! <det> subcategories
 %<dem%> ! Demonstrative
 !! <prn> subcategories
-%<prs%> ! Personal
+%<pers%> ! Personal
 
 ! Misc verb stuff
 %<neg%>
@@ -109,6 +113,7 @@ Determiners ;
 Numerals ;
 Postpositions ;
 Pronouns ;
+Punctuation ;
 
 
 LEXICON POST
@@ -118,6 +123,17 @@ LEXICON POST
 LEXICON NOM-CLITICS
 
 %+ла%<cnjcoo%>:% л%{A%} # ; ! "and"
+%+да%<postadv%>:% %{D%}%{A%} # ; ! "and"
+# ;
+
+LEXICON PRC-CLITICS
+
+%+да%<postadv%>:% %{D%}%{A%} # ; ! "also"
+# ;
+
+LEXICON ADJ-CLITCIS
+
+%+да%<postadv%>:% %{D%}%{A%} # ; ! "also"
 # ;
 
 LEXICON N-Px
@@ -133,7 +149,7 @@ LEXICON N-Case
 %<acc%>:%>%{N%}%{I%} NOM-CLITICS ;
 %<gen%>:%>%{N%}%{I%}ҥ NOM-CLITICS ;
 %<loc%>:%>%{D%}%{A%} NOM-CLITICS ;
-%<ins%>:%>%{L%}%{A%} NOM-CLITICS ;
+%<ins%>:%>л%{A%} NOM-CLITICS ;
 %<abl%>:%>%{D%}%{A%}ҥ NOM-CLITICS ;
 %<dat%>:%>%{G%}%{A%} NOM-CLITICS ;
 
@@ -151,7 +167,7 @@ N-INFL ;
 
 LEXICON A1
 
-%<adj%>: # ;
+%<adj%>: ADJ-CLITICS ;
 %<adj%>%<subst%>: SUBST-COMMON ;
 
 LEXICON A4
@@ -207,8 +223,8 @@ LEXICON V-NonFinite
 
 LEXICON V-NonFinite-Irreg
 
-%<prc_perf%>:%>%{i%}п # ;
-%<neg%>%<prc_perf%>:%>%{B%}%{A%}%>%{E%} # ;
+%<prc_perf%>:%>%{i%}п PRC-CLITCS ;
+%<neg%>%<prc_perf%>:%>%{B%}%{A%}%>%{E%} PRC-CLITICS ;
 
 %<gna_perf%>:%>%{i%}п # ;
 %<neg%>%<gna_perf%>:%>%{B%}%{A%}%>%{E%} # ;
@@ -371,6 +387,8 @@ LEXICON NounRoot
 ич:ич N-INFL ; ! "inside"
 тöзöлгö:тöзöлгö N-INFL ; ! "basis"
 база:база N-INFL ; ! "base"
+тил:тил N-INFL ; ! "language, tongue"
+бӧлӱк:бӧлӱк N-INFL ; ! "section"
 
 
 LEXICON VerbRoot
@@ -438,6 +456,36 @@ LEXICON Numerals
 бир:бир NUM ; ! "one"
 
 муҥ:муҥ NUM ; ! "thousand"
+
+
+LEXICON Punctuation
+
+%.%<sent%>:%. # ;
+
+%.%.%.%<sent%>:%.%.%. # ;
+%;%<sent%>:%; # ;
+%:%<sent%>:%: # ;
+%!%<sent%>:%! # ;
+%-%<guio%>:%- # ;
+%х%<guio%>:%- # ;
+%—%<guio%>:%— # ;
+%–%<guio%>:%– # ;
+,%<cm%>:%, # ;
+%?%<sent%>:%? # ;
+%'%<apos%>:%' # ;
+%"%<sent%>:%" # ;
+%«%<lquot%>:%« # ;
+%»%<rquot%>:%» # ;
+%”%<rquot%>:%” # ;
+%“%<lquot%>:%“ # ;
+%(%<lpar%>:%( # ;
+%]%<rpar%>:%] # ;
+%[%<lpar%>:%[ # ;
+%)%<rpar%>:%) # ;
+%\%<sent%>:%\ # ;
+%/%<sent%>:%/ # ;
+
+
 
 
 ! Resources:
