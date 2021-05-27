@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
 
-AC_INIT([Apertium Southern Altai], [0.1.0], [jonathan.north.washington@gmail.com], [apertium-alt], [http://wiki.apertium.org/wiki/Apertium-alt])
+AC_INIT([Apertium Southern Altai], [0.1.0], [jonathan.north.washington@gmail.com], [apertium-alt], [https://wiki.apertium.org/wiki/Apertium-alt])
 AM_INIT_AUTOMAKE
 
 AC_PROG_LN_S
