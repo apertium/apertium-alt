@@ -1,0 +1,10 @@
+{
+    "analysis": {
+        "input": "analysis-input.txt",
+        "mode": "alt-morph"
+    },
+    "twol": {
+        "input": null,
+        "command": "test/run-twol-pairtests.sh"
+    }
+}
