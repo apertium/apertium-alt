@@ -5,7 +5,8 @@ Multichar_Symbols
 ! Part of speech categories
 %<n%>       ! Noun
 %<v%>       ! Verb
-%<adj%>     ! Ajective
+%<adj%>     ! Adjective
+%<adv%>     ! Adverb
 %<np%>      ! Proper nouns
 %<det%>     ! Determiner
 %<cnjcoo%>  ! Coordinating conjunction
@@ -113,6 +114,7 @@ NounRoot ;
 VerbRoot ;
 AdjectiveRoot ;
 ProperNounRoot ;
+Adverbs ;
 Determiners ;
 Numerals ;
 Postpositions ;
@@ -127,6 +129,10 @@ Interjections ;
 LEXICON POST
 
 %<post%>: # ; 
+
+LEXICON ADV
+
+%<adv%>: # ; 
 
 LEXICON POSTADV
 
@@ -712,7 +718,13 @@ LEXICON AdjectiveRoot
 ачу:ачу A1 ; ! "strong-flavoured"
 јаман:јаман A1 ; ! "bad"
 улу:улу A1 ; ! "old"
-ак:ак A1 ; ! "white"
+ак:ак A1 ; ! "white/белый"
+јаан:јаан A4 ; ! "большой"
+јажыл:јажыл A1 ; ! "зелёный"
+
+LEXICON Adverbs
+
+бӱгӱн:бӱгӱн ADV ; ! "сегодня"
 
 LEXICON ProperNounRoot
 
@@ -753,6 +765,10 @@ LEXICON Numerals
 ӱч:ӱч NUM ; ! "three"
 тӧрт:тӧрт NUM ; ! "four"
 беш:беш NUM ; ! "five"
+алты:алты NUM ; ! "шесть"
+јети:јети NUM ; ! "семь"
+сегис:сегис NUM ; ! "восемь"
+тогус:тогус NUM ; ! "деветь"
 
 одус:одус NUM ; ! "thirty"
 
